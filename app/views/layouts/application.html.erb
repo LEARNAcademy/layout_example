@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>BlueBay</title>
+    <%= csrf_meta_tags %>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body>
+    <nav>
+      <% current_page = yield :current_page %>
+      <% if current_page == "/" %>
+        <a href="/" class="current_page">Home</a>
+      <% else %>
+        <a href="/">Home</a>
+      <% end %>
+       |
+      <% if current_page == "/about" %>
+        <a href="/about" class="current_page">About</a>
+      <% else %>
+        <a href="/about">About</a>
+      <% end %>
+    </nav>
+
+    <%= yield %>
+
+    <footer>
+      The current page is <%= yield :current_page %>
+    </footer>
+  </body>
+</html>
